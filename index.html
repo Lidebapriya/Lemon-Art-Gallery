@@ -2,27 +2,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lemon’s Art Gallery | Healing Through Art</title>  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body><canvas id="snow"></canvas>
+  <title>Lemon’s Art Gallery — Since 2025</title>  <!-- Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">  <style>
+    :root {
+      --night-blue: #0b1c2d;
+      --star-blue: #1e3a5f;
+      --lemon: #f4c430;
+      --cream: #fff6d8;
+      --ink: #0f172a;
+    }
 
-<header>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1b3b6f, #081423 70%);
+      color: #fdfdfd;
+      overflow-x: hidden;
+    }
+
+    /* ✨ Starry Night Background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.8), transparent 40%),
+        radial-gradient(1.5px 1.5px at 70% 80%, rgba(255,255,255,.6), transparent 40%),
+        radial-gradient(2px 2px at 40% 60%, rgba(255,255,255,.7), transparent 40%),
+        radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,.5), transparent 40%);
+      background-size: 400px 400px;
+      animation: stars 120s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes stars {
+      from { background-position: 0 0; }
+      to { background-position: -2000px 1000px; }
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero {
+      max-width: 900px;
+      text-align: center;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      border-radius: 28px;
+      padding: 4rem 3rem;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.4);
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .since {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--lemon);
+      margin-bottom: 1.5rem;
+    }
+
+    .manifesto {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #f3f4f6;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 1rem 2.4rem;
+      border-radius: 999px;
+      background: var(--lemon);
+      color: #000;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 12px 40px rgba(244,196,48,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(244,196,48,0.6);
+    }
+
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    /* 🖼️ Gallery Grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .art-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .art-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 50px 120px rgba(0,0,0,0.5);
+    }
+
+    .art-placeholder {
+      height: 320px;
+      background: linear-gradient(135deg, #1e3a5f, #0b1c2d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .art-info {
+      padding: 1.4rem 1.6rem 2rem;
+    }
+
+    .art-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .art-info p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    footer span {
+      color: var(--lemon);
+    }
+
+    /* 🌙 Subtle glow */
+    .glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(244,196,48,0.15), transparent 70%);
+      top: -200px;
+      right: -200px;
+      z-index: -1;
+    }
+  </style></head>
+<body><div class="glow"></div><header>
   <div class="hero">
-    <h1>Lemon’s Art Gallery</h1>
-    <p class="tagline">Healing • Expression • Light</p><div class="manifesto">
-  <p>I am an artist who believes art is not decoration — it is refuge.</p>
-  <p>Art helped me out of depression. When words failed, colors stayed.</p>
-  <p>This gallery exists so no one feels alone in their darkness.</p>
+    <!-- Replace logo.png with your uploaded logo filename -->
+    <img src="logo.png" alt="Lemon’s Art Gallery Logo" class="logo" /><h1>Lemon’s Art Gallery</h1>
+<div class="since">Since 2025</div>
+
+<div class="manifesto">
+  <p>Art is not decoration — it is refuge.</p>
+  <p>This gallery was born from healing, from nights where color spoke when words could not.</p>
+  <p>Here, art is allowed to be slow, emotional, imperfect, and alive.</p>
 </div>
 
-<a href="#shop" class="cta">Explore Art</a>
+<a href="#gallery" class="cta">Enter the Gallery</a>
 
   </div>
-</header><section id="shop">
-  <h2>Original Artworks</h2>
-  <div class="gallery" id="gallery"></div>
+</header><section id="gallery">
+  <div class="section-inner">
+    <h2>Gallery</h2><div class="gallery">
+  <!-- Artwork placeholders (replace later with your real art images) -->
+  <div class="art-card">
+    <div class="art-placeholder">Artwork Coming Soon</div>
+    <div class="art-info">
+      <h3>Untitled</h3>
+      <p>Acrylic • Canvas</p>
+    </div>
+  </div>
+
+  <div class="art-card">
+    <div class="art-placeholder">Artwork Coming Soon</div>
+    <div class="art-info">
+      <h3>Untitled</h3>
+      <p>Mixed Media</p>
+    </div>
+  </div>
+
+  <div class="art-card">
+    <div class="art-placeholder">Artwork Coming Soon</div>
+    <div class="art-info">
+      <h3>Untitled</h3>
+      <p>Healing Series</p>
+    </div>
+  </div>
+</div>
+
+  </div>
 </section><footer>
-  <p>© 2025 Lemon’s Art Gallery • Art as refuge • Art as light</p>
-</footer><script src="app.js"></script></body>
+  <p>© 2025 <span>Lemon’s Art Gallery</span> • A place to feel • A place to breathe</p>
+</footer></body>
 </html>
