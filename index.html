@@ -2,175 +2,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lemon’s Art Gallery | Healing Through Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #FFF6D8;
-      --accent: #F4C430;
-      --olive: #7A8A4A;
-      --ink: #1E1E1E;
-      --soft: #ffffffcc;
-    }* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.7;
-}
-
-header {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.hero {
-  max-width: 900px;
-  text-align: center;
-  background: var(--soft);
-  border-radius: 24px;
-  padding: 3rem 2.5rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-}
-
-.logo {
-  width: 180px;
-  margin-bottom: 1.5rem;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.tagline {
-  font-size: 1.1rem;
-  color: #444;
-  margin-bottom: 2rem;
-}
-
-.manifesto {
-  font-size: 1rem;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-}
-
-.manifesto p {
-  margin-bottom: 1rem;
-}
-
-.cta {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-section {
-  padding: 4rem 2rem;
-}
-
-.section-inner {
-  max-width: 1000px;
-  margin: auto;
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-}
-
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 0.8rem;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-footer span {
-  color: var(--olive);
-}
-
-  </style>
+  <title>Lemon’s Art Gallery | Healing Through Art</title>  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>  <header>
-    <div class="hero">
-      <!-- Replace src with your logo file -->
-      <img src="logo.png" alt="Lemon’s Art Gallery Logo" class="logo" /><h1>Lemon’s Art Gallery</h1>
-  <p class="tagline">Healing • Expression • Light</p>
+<body><canvas id="snow"></canvas>
 
-  <div class="manifesto">
-    <p>I am an artist who believes that art is not decoration — it is refuge.</p>
-    <p>Art helped me come out of depression. In moments when words failed, colors stayed. Brushes listened. Paint held me together.</p>
-    <p>This space exists so that no one feels alone in their darkness. You don’t have to be perfect to create. You only need to feel.</p>
-    <p>Touch the paint. Feel the colors. Pour your heart onto walls, canvas, floors — anything. Let art become your light.</p>
-  </div>
-
-  <a href="#journey" class="cta">Begin the Journey</a>
+<header>
+  <div class="hero">
+    <h1>Lemon’s Art Gallery</h1>
+    <p class="tagline">Healing • Expression • Light</p><div class="manifesto">
+  <p>I am an artist who believes art is not decoration — it is refuge.</p>
+  <p>Art helped me out of depression. When words failed, colors stayed.</p>
+  <p>This gallery exists so no one feels alone in their darkness.</p>
 </div>
 
-  </header>  <section id="journey">
-    <div class="section-inner">
-      <h2>What I Create</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Healing Art</h3>
-          <p>Art created with intention — to comfort, ground, and remind you that surviving itself is beautiful.</p>
-        </div>
-        <div class="card">
-          <h3>Wall & Space Art</h3>
-          <p>Because healing doesn’t belong only on canvas. Walls, rooms, and spaces deserve softness too.</p>
-        </div>
-        <div class="card">
-          <h3>Art for Everyone</h3>
-          <p>You don’t need talent, training, or permission. Art belongs to anyone who feels deeply.</p>
-        </div>
-      </div>
-    </div>
-  </section>  <section>
-    <div class="section-inner">
-      <h2>Why Lemon?</h2>
-      <div class="card">
-        <p>Like lemons, life can be sharp, overwhelming, and intense. But even the sharpest things carry healing, freshness, and light.</p>
-        <p>Lemon’s Art Gallery is a reminder that brightness can exist alongside pain — and sometimes because of it.</p>
-      </div>
-    </div>
-  </section>  <footer>
-    <p>© 2024 <span>Lemon’s Art Gallery</span> • Art as refuge • Art as light</p>
-  </footer></body>
+<a href="#shop" class="cta">Explore Art</a>
+
+  </div>
+</header><section id="shop">
+  <h2>Original Artworks</h2>
+  <div class="gallery" id="gallery"></div>
+</section><footer>
+  <p>© 2025 Lemon’s Art Gallery • Art as refuge • Art as light</p>
+</footer><script src="app.js"></script></body>
 </html>
